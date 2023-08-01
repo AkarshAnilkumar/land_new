@@ -72,11 +72,11 @@ export default function CreateProperty() {
 
   return (
     <div className="container mx-auto">
-      <h1 className="text-2xl font-bold mb-4">Create Property</h1>
+      <h1 className="text-4xl font-bold mb-4 p-5">Create Property</h1>
 
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">
+          <label className="block text-gray-700 text-sm font-bold mb-2 p-2" htmlFor="name">
             Name
           </label>
           <input
@@ -90,7 +90,7 @@ export default function CreateProperty() {
         </div>
 
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="location">
+          <label className="block text-gray-700 text-sm font-bold mb-2 p-2" htmlFor="location">
             Location
           </label>
           <input
@@ -104,7 +104,7 @@ export default function CreateProperty() {
         </div>
 
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="price">
+          <label className="block text-gray-700 text-sm font-bold mb-2 p-2" htmlFor="price">
             Price (ETH)
           </label>
           <input
@@ -117,7 +117,7 @@ export default function CreateProperty() {
           />
         </div>
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="Water_Connection">
+          <label className="block text-gray-700 text-sm font-bold mb-2 p-2" htmlFor="Water_Connection">
           Water Connection
           </label>
           <input
@@ -130,7 +130,7 @@ export default function CreateProperty() {
           />
         </div>
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="Electricity_bill">
+          <label className="block text-gray-700 text-sm font-bold mb-2 p-2" htmlFor="Electricity_bill">
           Electricity bill
           </label>
           <input
