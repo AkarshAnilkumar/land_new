@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import {ethers} from 'ethers';
+import { ethers } from 'ethers';
 // import useAlert from './useAlert.js';
 
 import LandRegistry from '../../contracts/artifacts/contracts/LandRegistry.sol/LandRegistry.json'; // Replace with your contract's artifact
@@ -48,22 +48,44 @@ export default function CreateProperty() {
       const contract = new ethers.Contract(contractAddress, LandRegistry.abi, signer);
 
       // Add the property to the contract
-      await contract.addProperty(name, location, ethers.parseEther(price), address);
 
-      localStorage.setItem("name", name)
-      localStorage.setItem("location", location)
-      localStorage.setItem("price", price)
-      localStorage.setItem("Water_Connection", Water_Connection)
-      localStorage.setItem("Electricity_bill", Electricity_bill)
+      if (localStorage.getItem(name)) {
 
-      // Reset form fields
-      setName('');
-      setLocation('');
-      setPrice('');
-      setElectricity_bill('');
-      setWater_Connection('');
+        let item = JSON.parse(localStorage.getItem(name));
+        console.log(item);
+        console.log(price);
+        console.log(item.price)
+        if (item.price != price) {
 
-      alert('Property added successfully!');
+          alert("property already registered");
+        }
+      }
+      else {
+
+        let property = {
+          "location": location,
+          "price": price,
+          "water_connection": Water_Connection,
+          "electricity_bill": Electricity_bill
+
+        }
+
+        localStorage.setItem(name, JSON.stringify(property));
+
+        // Reset form fields
+        setName('');
+        setLocation('');
+        setPrice('');
+        setElectricity_bill('');
+        setWater_Connection('');
+
+        await contract.addProperty(name, location, ethers.parseEther(price), address);
+        alert('Property added successfully!');
+
+
+      }
+
+      
     } catch (error) {
       console.error(error);
       alert('Failed to add property');
@@ -132,23 +154,23 @@ export default function CreateProperty() {
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2 p-2" htmlFor="Electricity_bill">
           Electricity bill
-          </label>
-          <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="Electricity_bill"
-            type="text"
-            placeholder="Enter Electricity bill"
-            value={Electricity_bill}
-            onChange={handleElectricity_billChange}
-          />
-        </div>
-        <button
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-          type="submit"
-        >
-          Post
-        </button>
-        </form>
-        </div>
-  )
+        </label>
+        <input
+          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="Electricity_bill"
+          type="text"
+          placeholder="Enter Electricity bill"
+          value={Electricity_bill}
+          onChange={handleElectricity_billChange}
+        />
+      </div>
+      <button
+        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+        type="submit"
+      >
+        Post
+      </button>
+    </form>
+  </div>
+)
 }
