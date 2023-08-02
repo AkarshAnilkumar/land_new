@@ -20,13 +20,12 @@ export default function SearchLand() {
     event.preventDefault();
 
     try {
-      const name = localStorage.getItem("name")
-      const location = localStorage.getItem("location")
-      const price = localStorage.getItem("price")
-      const Water_Connection = localStorage.getItem("Water_Connection")
-      const Electricity_bill = localStorage.getItem("Electricity_bill")
 
-      setLandData({name, location, price, Water_Connection, Electricity_bill})
+
+      const data = JSON.parse( localStorage.getItem(searchName) );
+      data.name = searchName;
+
+      setLandData(data);
 
       // Connect to Ethereum provider
       const provider = new ethers.JsonRpcProvider("http://127.0.0.1:7545");
@@ -48,6 +47,9 @@ export default function SearchLand() {
         alert('Land not found');
         // setLandData(null);
       }
+
+      setLandData(landInfo);
+
     } catch (error) {
       // console.error(error);
       // alert('Failed to search for land');
