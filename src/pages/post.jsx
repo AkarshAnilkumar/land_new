@@ -71,6 +71,7 @@ export default function CreateProperty() {
         }
 
         localStorage.setItem(name, JSON.stringify(property));
+        await contract.addProperty(name, location, ethers.parseEther(price), address);
 
         // Reset form fields
         setName('');
@@ -79,7 +80,6 @@ export default function CreateProperty() {
         setElectricity_bill('');
         setWater_Connection('');
 
-        await contract.addProperty(name, location, ethers.parseEther(price), address);
         alert('Property added successfully!');
 
 
