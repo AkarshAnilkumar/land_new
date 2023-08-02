@@ -90,70 +90,69 @@ export default function CreateProperty() {
       console.error(error);
       alert('Failed to add property');
     }
-  
-};
+  };
 
-return (
-  <div className="container mx-auto">
-    <h1 className="text-2xl font-bold mb-4">Create Property</h1>
+  return (
+    <div className="container mx-auto">
+      <h1 className="text-4xl font-bold mb-4 p-5">Create Property</h1>
 
-    <form onSubmit={handleSubmit}>
-      <div className="mb-4">
-        <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">
-          Name
-        </label>
-        <input
-          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          id="name"
-          type="text"
-          placeholder="Enter property name"
-          value={name}
-          onChange={handleNameChange}
-        />
-      </div>
+      <form onSubmit={handleSubmit}>
+        <div className="mb-4">
+          <label className="block text-gray-700 text-sm font-bold mb-2 p-2" htmlFor="name">
+            Name
+          </label>
+          <input
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            id="name"
+            type="text"
+            placeholder="Enter property name"
+            value={name}
+            onChange={handleNameChange}
+          />
+        </div>
 
-      <div className="mb-4">
-        <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="location">
-          Location
-        </label>
-        <input
-          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          id="location"
-          type="text"
-          placeholder="Enter property location"
-          value={location}
-          onChange={handleLocationChange}
-        />
-      </div>
+        <div className="mb-4">
+          <label className="block text-gray-700 text-sm font-bold mb-2 p-2" htmlFor="location">
+            Location
+          </label>
+          <input
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            id="location"
+            type="text"
+            placeholder="Enter property location"
+            value={location}
+            onChange={handleLocationChange}
+          />
+        </div>
 
-      <div className="mb-4">
-        <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="price">
-          Price (ETH)
-        </label>
-        <input
-          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          id="price"
-          type="text"
-          placeholder="Enter price"
-          value={price}
-          onChange={handlePriceChange}
-        />
-      </div>
-      <div className="mb-4">
-        <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="Water_Connection">
+        <div className="mb-4">
+          <label className="block text-gray-700 text-sm font-bold mb-2 p-2" htmlFor="price">
+            Price (ETH)
+          </label>
+          <input
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            id="price"
+            type="text"
+            placeholder="Enter price"
+            value={price}
+            onChange={handlePriceChange}
+          />
+        </div>
+        <div className="mb-4">
+          <label className="block text-gray-700 text-sm font-bold mb-2 p-2" htmlFor="Water_Connection">
           Water Connection
-        </label>
-        <input
-          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          id="Water_Connection"
-          type="text"
-          placeholder="Enter Water Connection details"
-          value={Water_Connection}
-          onChange={handleWater_ConnectionChange}
-        />
-      </div>
-      <div className="mb-4">
-        <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="Electricity_bill">
+          </label>
+          <input
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            id="Water_Connection"
+            type="text"
+            placeholder="Enter Water Connection details"
+            value={Water_Connection}
+            onChange={handleWater_ConnectionChange}
+          />
+        </div>
+        <div className="mb-4">
+          <label className="block text-gray-700 text-sm font-bold mb-2 p-2" htmlFor="Electricity_bill">
           Electricity bill
         </label>
         <input
