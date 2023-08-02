@@ -59,7 +59,7 @@ export default function SearchLand() {
 
   return (
     <div className="container mx-auto">
-      <h1 className="text-2xl font-bold mb-4">Search Land</h1>
+      <h1 className="text-4xl font-bold mb-4 p-5">Search Land</h1>
 
       <form onSubmit={handleSearch}>
         <div className="mb-4">
