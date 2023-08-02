@@ -8,6 +8,8 @@ export default function CreateProperty() {
   const [name, setName] = useState('');
   const [location, setLocation] = useState('');
   const [price, setPrice] = useState('');
+  const [Owner_name, setOwner_name] = useState('');
+  const [Survey_number, setSurvey_number] = useState('');
   const [Electricity_bill, setElectricity_bill] = useState('');
   const [Water_Connection, setWater_Connection] = useState('');
 
@@ -30,6 +32,14 @@ export default function CreateProperty() {
 
   const handleWater_ConnectionChange = (event) => {
     setWater_Connection(event.target.value);
+  };
+
+  const handleOwner_nameChange = (event) => {
+    setOwner_name(event.target.value);
+  };
+
+  const handleSurvey_numberChange = (event) => {
+    setSurvey_number(event.target.value);
   };
 
   const handleSubmit = async (event) => {
@@ -68,6 +78,8 @@ export default function CreateProperty() {
           "location": location,
           "price": price,
           "water_connection": Water_Connection,
+          "Owner_name": Owner_name,
+          "Survey_number": Survey_number,
           "electricity_bill": Electricity_bill
 
         }
@@ -81,11 +93,10 @@ export default function CreateProperty() {
         setPrice('');
         setElectricity_bill('');
         setWater_Connection('');
+        setOwner_name('');
+        setSurvey_number('');
 
-<<<<<<< HEAD
-=======
        
->>>>>>> 02321139ca16ce9a3f6a390285df0c9fa378b62f
         alert('Property added successfully!');
 
 
@@ -155,6 +166,32 @@ export default function CreateProperty() {
             placeholder="Enter Water Connection details"
             value={Water_Connection}
             onChange={handleWater_ConnectionChange}
+          />
+        </div>
+        <div className="mb-4">
+          <label className="block text-gray-700 text-sm font-bold mb-2 p-2" htmlFor="Owner_name">
+          Owner Name
+          </label>
+          <input
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            id="Owner_name"
+            type="text"
+            placeholder="Enter Owner Name details"
+            value={Owner_name}
+            onChange={handleOwner_nameChange}
+          />
+        </div>
+        <div className="mb-4">
+          <label className="block text-gray-700 text-sm font-bold mb-2 p-2" htmlFor="Survey_number">
+          Survey Number
+          </label>
+          <input
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            id="Survey_number"
+            type="text"
+            placeholder="Enter Survey Number details"
+            value={Survey_number}
+            onChange={handleSurvey_numberChange}
           />
         </div>
         <div className="mb-4">
