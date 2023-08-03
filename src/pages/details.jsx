@@ -131,6 +131,12 @@ export default function SearchLand() {
           <p>
             <strong>Electricity bill</strong> {landData.electricity_bill} 
           </p>
+          <p>
+            <strong>Land owner</strong> {landData.Owner_name} 
+          </p>
+          <p>
+            <strong>Survey Number</strong> {landData.Survey_number} 
+          </p>
         </div>
       )}
     </div>
