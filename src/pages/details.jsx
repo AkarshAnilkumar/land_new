@@ -7,6 +7,7 @@ export default function SearchLand() {
   const [searchName, setSearchName] = useState('');
   const [searchLocation, setSearchLocation] = useState('');
   const [landData, setLandData] = useState(null);
+  
 
   const handleSearchNameChange = (event) => {
     setSearchName(event.target.value);
@@ -18,6 +19,7 @@ export default function SearchLand() {
 
   const handleSearch = async (event) => {
     event.preventDefault();
+    console.log("cliccked")
 
     try {
 
@@ -25,29 +27,42 @@ export default function SearchLand() {
       const data = JSON.parse( localStorage.getItem(searchName) );
       data.name = searchName;
 
+       console.log(data)
+
       setLandData(data);
+      
 
       // Connect to Ethereum provider
       const provider = new ethers.JsonRpcProvider("http://127.0.0.1:7545");
+
+      
 
       // Create a contract instance
       const contractAddress = '0x5FbDB2315678afecb367f032d93F642f64180aa3'; // Replace with your contract's address
       const contract = new ethers.Contract(contractAddress, LandRegistry.abi, provider);
 
+      console.log("hi")
+
       // Search for land by name and location
-      const landId = await contract.searchLand(searchName, searchLocation);
+      const landId = await  contract.searchLand(searchName, searchLocation);
+
+      console.log("heloo")
+      console.log( 'the land id',  landId)
 
       if (landId > 0) {
         // Retrieve land information
         const landInfo = await contract.getLandInfo(landId);
 
+        landInfo.water_connection =  data.water_connection;
+        landInfo.electricity_bill =  data.electricity_bill;
+        
         // Update land data state
         // setLandData(landInfo);
       } else {
         alert('Land not found');
         // setLandData(null);
       }
-
+      console.log("the info is",  landInfo);
       setLandData(landInfo);
 
     } catch (error) {
@@ -111,10 +126,10 @@ export default function SearchLand() {
             <strong>Price:</strong> {landData.price} ETH
           </p>
           <p>
-            <strong>Water Connection</strong> {landData.Water_Connection} 
+            <strong>Water Connection</strong> {landData.water_connection} 
           </p>
           <p>
-            <strong>Electricity bill</strong> {landData.Electricity_bill} 
+            <strong>Electricity bill</strong> {landData.electricity_bill} 
           </p>
         </div>
       )}
